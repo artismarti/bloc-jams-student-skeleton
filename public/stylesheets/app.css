@@ -48,7 +48,6 @@ body.landing {
   padding: 20px;
   border-top: 1px solid rgba(255, 255, 255, .4);
 }
-
   .collection-album-container {
      margin-top: 30px;
      margin-bottom: 20px;
@@ -71,6 +70,5 @@ body.landing {
   .collection-album-container img {
     max-width: 100%;
   }
-
 
 /*# sourceMappingURL=app.css.map*/
