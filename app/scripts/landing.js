@@ -26,4 +26,9 @@ $(document).ready(function() {
 
   $('.selling-points .point').hover(onHoverAction, offHoverAction);
   $('.hero-content h3').hover(onTurnHover, offTurnHover);
+  $('.logo').click(function() {
+      $('.logo').fadeOut("slow", function() {
+        console.log("Fade");
+      });
+  });
   });
