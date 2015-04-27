@@ -92,25 +92,67 @@
 })();
 require.register("scripts/app", function(exports, require, module) {
 require("./landing");
+require("./collection");
 
 });
 
+;require.register("scripts/collection", function(exports, require, module) {
+ var buildAlbumThumbnail = function() {
+    var template =
+        '<div class="collection-album-container col-md-2">'
+      + '  <img src="/images/album-placeholder.png"/>'
+      + '  <div class="caption album-collection-info">'
+      + '    <p>'
+      + '      <a class="album-name" href="/album.html"> Album Name </a>'
+      + '      <br/>'
+      + '      <a href="/album.html"> Artist name </a>'
+      + '      <br/>'
+      + '      X songs'
+      + '      <br/>'
+      + '      <br/>'
+      + '      X:XX Total Length'
+      + '      <br/>'
+      + '    </p>'
+      + '  </div>'
+      + '</div>';
+
+   return $(template);
+ };
+
+ var updateCollectionView = function() {
+  var $collection = $(".collection-container .row");
+  $collection.empty();
+
+  for (var i = 0; i < Math.floor((Math.random()*100)+1); i++) {
+    var $newThumbnail = buildAlbumThumbnail();
+    $collection.append($newThumbnail)
+  }
+ }
+if (document.URL.match(/\/collection.html/)) {
+  // Wait until the HTML is fully processed.
+  $(document).ready(function() {
+    // Your code goes here.
+    updateCollectionView();
+  });
+}
+});
+
 ;require.register("scripts/landing", function(exports, require, module) {
-$(document).ready(function() { 
-    $('.hero-content h3').click(function(){
-      var subText = $(this).text();
-       $(this).text(subText + "!");
-    });
- 
-   var onHoverAction = function(event) {
-     console.log('Hover action triggered.');
-     $(this).animate({'margin-top': '10px'});
-   };
- 
-   var offHoverAction = function(event) {
-     console.log('Off-hover action triggered.');
-     $(this).animate({'margin-top': '0px'});
-   };
+$(document).ready(function() {
+  $('.hero-content h3').click(function(){
+    var subText = $(this).text();
+    $(this).text(subText + "!");
+  });
+
+  var onHoverAction = function(event) {
+    console.log('Hover action triggered.');
+    $(this).animate({'margin-top': '10px'});
+  };
+
+  var offHoverAction = function(event) {
+    console.log('Off-hover action triggered.');
+    $(this).animate({'margin-top': '0px'});
+  };
 
   var onTurnHover = function(event) {
     console.log("Turn colour on");
@@ -123,13 +165,15 @@ $(document).ready(function() {
   }
 
   $('.selling-points .point').hover(onHoverAction, offHoverAction);
+
   $('.hero-content h3').hover(onTurnHover, offTurnHover);
+
   $('.logo').click(function() {
       $('.logo').fadeOut("slow", function() {
         console.log("Fade");
       });
   });
-  });
+});
 });
 
 ;
