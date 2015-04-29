@@ -1,4 +1,4 @@
 node_modules
 bower_components
 *.swp
-public/javascripts/app.js.map
+*.js.map
