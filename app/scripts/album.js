@@ -66,6 +66,5 @@ if (document.URL.match(/\/album.html/)) {
 		$(".album-image").click(function () {
 		changeAlbumView(albumMarconi);
 		});
-
 	});
 }
