@@ -1,0 +1,41 @@
+// Override the defaults that Bootstrap sets.
+.table.album-song-listing td {
+  padding: 20px;
+  border-top: 1px solid rgba(255, 255, 255, .4);
+}
+
+
+ .album-song-button {
+  text-align: center;
+  font-size: 14px;
+  background-color: white;
+  color: #d2287b;
+  border-radius: 50% 50%;
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+
+    i {
+      line-height: 28px;
+   }
+
+    .fa-play {
+      padding-left: 5px;
+    }
+
+    td {
+      vertical-align: middle;
+    }
+
+    &:hover {
+      cursor: pointer;
+      color: white;
+      background-color: #d2287b;
+    }
+ }
+
+td.song-number {
+  padding: 0;
+  height: 70px;
+  text-align: center;
+}
