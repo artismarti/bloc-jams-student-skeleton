@@ -241,6 +241,7 @@ if (document.URL.match(/\/album.html/)) {
 require("./landing");
 require("./collection");
 require("./album");
+require("./profile");
 
 });
 
@@ -349,6 +350,21 @@ $(document).ready(function() {
       });
   });
 });
+});
+
+;require.register("scripts/profile", function(exports, require, module) {
+var tabsContainer = ".user-profile-tabs-container";
+
+var selectTabHandler = function(event) {
+	$tab = $(this);
+	$(tabsContainer + "li").removeClass("active");
+	$tab.parent().addClass("active");
+	selectedTabName = $tab.attr("href");
+	console.log(selectedTabName);
+	$(".tab-pane").addClass("hidden");
+	$(selectedTabName).removeClass("hidden");
+	event.preventDefault();
+};
 });
 
 ;
