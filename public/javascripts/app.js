@@ -249,6 +249,14 @@ angular.module('BlocJams', []).controller('Landing.controller', ['$scope', funct
     $scope.subText += "!";
   };
 
+  $scope.header = "Bloc Jams";
+  $scope.headerClicked = function shuffle(o) { //v1.0
+    for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+    return o;
+  };
+
+
+
   $scope.albumURLs = [
     '/images/album-placeholders/album-1.jpg',
     '/images/album-placeholders/album-2.jpg',
