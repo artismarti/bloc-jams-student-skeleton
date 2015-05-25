@@ -242,6 +242,8 @@ if (document.URL.match(/\/album.html/)) {
 // require("./collection");
 // require("./album");
 // require("./profile");
+
+blocJams = angular.module('BlocJams', ['ui.router']);
 blocJams.config(['$stateProvider', '$locationProvider', function($stateProvider, $locationProvider) {
   $locationProvider.html5Mode(true);
 
@@ -272,8 +274,6 @@ var albumPicasso = {
   ]
 };
 
-blocJams = angular.module('BlocJams', ['ui.router']);
-
 blocJams.controller('Landing.controller', ['$scope', function($scope) {
   $scope.subText = "Turn the music up!";
   $scope.subTextClicked = function() {
@@ -286,7 +286,7 @@ blocJams.controller('Collection.controller', ['$scope', function($scope){
   for (var i = 0; i < 33; i++) {
     $scope.albums.push(angular.copy(albumPicasso));
   }
-}]);
+
 
   $scope.header = "Bloc Jams";
   $scope.headerClicked = function shuffle(o) { //v1.0
@@ -307,6 +307,7 @@ blocJams.controller('Collection.controller', ['$scope', function($scope){
     '/images/album-placeholders/album-8.jpg',
     '/images/album-placeholders/album-9.jpg',
   ];
+  }]);
 
 });
 
