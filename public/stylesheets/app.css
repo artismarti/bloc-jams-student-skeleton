@@ -281,6 +281,9 @@ td.song-number {
 .no-right-gutter {
   padding-right: 0px; }
 
+.odd {
+  background-color: blue; }
+
 html {
   height: 100%; }
 
