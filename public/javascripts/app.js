@@ -271,20 +271,20 @@ blocJams.controller('Landing.controller', ['$scope', function($scope) {
   };
 }]);
 
-blocJams.controller('Collection.controller', ['$scope', function($scope){
+blocJams.controller('Collection.controller', ['$scope','SongPlayer', function($scope, SongPlayer) {
   $scope.albums = [];
   for (var i = 0; i < 33; i++) {
     $scope.albums.push(angular.copy(albumPicasso));
   }
 
-
+  $scope.playAlbum = function(album){
+    SongPlayer.setSong(album, album.songs[0]); // Targets first song in the array.
+  }
   $scope.header = "Bloc Jams";
   $scope.headerClicked = function shuffle(o) { //v1.0
     for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
     return o;
   };
-
-
 
   $scope.albumURLs = [
     '/images/album-placeholders/album-1.jpg',
@@ -298,7 +298,6 @@ blocJams.controller('Collection.controller', ['$scope', function($scope){
     '/images/album-placeholders/album-9.jpg',
   ];
   }]);
-
 
 blocJams.controller('PlayerBar.controller', ['$scope', 'SongPlayer', function($scope, SongPlayer) {
   $scope.songPlayer = SongPlayer;
@@ -329,7 +328,6 @@ blocJams.controller('Album.controller', ['$scope', 'SongPlayer', function($scope
 
   $scope.playSong = function(song){
     SongPlayer.setSong($scope.album, song);
-    SongPlayer.play();
   };
   $scope.pauseSong = function(song){
     SongPlayer.pause();
@@ -337,6 +335,7 @@ blocJams.controller('Album.controller', ['$scope', 'SongPlayer', function($scope
 }]);
 
 blocJams.service('SongPlayer', function() {
+  var currentSoundFile = null;
   var trackIndex = function(album, song) {
     return album.songs.indexOf(song);
   };
@@ -347,9 +346,11 @@ blocJams.service('SongPlayer', function() {
 
     play: function() {
       this.playing = true;
+      currentSoundFile.play();
     },
     pause: function() {
       this.playing = false;
+      currentSoundFile.pause();
     },
     next: function() {
       var currentTrackIndex = trackIndex(this.currentAlbum, this.currentSong);
@@ -358,6 +359,8 @@ blocJams.service('SongPlayer', function() {
         currentTrackIndex = 0;
       }
       this.currentSong = this.currentAlbum.songs[currentTrackIndex];
+      var song = this.currentAlbum.songs[currentTrackIndex];
+      this.setSong(this.currentAlbum, song);
     },
     previous: function() {
       var currentTrackIndex = trackIndex(this.currentAlbum, this.currentSong);
@@ -365,11 +368,21 @@ blocJams.service('SongPlayer', function() {
       if (currentTrackIndex < 0) {
         currentTrackIndex = this.currentAlbum.songs.length - 1;
       }
+      var song = this.currentAlbum.songs[currentTrackIndex];
+      this.setSong(this.currentAlbum, song);
       this.currentSong = this.currentAlbum.songs[currentTrackIndex];
     },
     setSong: function(album, song) {
+      if (currentSoundFile) {
+        currentSoundFile.stop();
+      }
       this.currentAlbum = album;
       this.currentSong = song;
+      currentSoundFile = new buzz.sound(song.audioUrl, {
+        formats: [ "mp3" ],
+        preload: true
+      });
+    this.play();
     }
   };
 });
