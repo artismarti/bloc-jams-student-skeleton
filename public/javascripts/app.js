@@ -374,6 +374,36 @@ blocJams.directive('slider', function(){
   };
 });
 
+blocJams.directive('clickMe', function() {
+  return {
+    restrict: 'EA',
+    replace: true,
+    template: '<button>Click Me!</button>',
+    link: function(scope, elem, attrs) {
+      console.log(scope, elem, attrs);
+      $(elem).on('click', function() {
+        alert('The clickMe directive has been triggered!');
+      });
+    }
+  }
+});
+
+blocJams.directive('countHoverTime', function(){
+  return{
+    restrict: 'A',
+    template: '<p>Hover Over Me</p>',
+    link: function(scope, elem, attrs){
+      $(elem).hover(
+        function(){
+          console.log('foo');
+        }, function(){
+          console.log('bar');
+        }
+      );
+    }
+  }
+});
+
 blocJams.service('SongPlayer', function() {
   var currentSoundFile = null;
   var trackIndex = function(album, song) {
@@ -426,6 +456,8 @@ blocJams.service('SongPlayer', function() {
     }
   };
 });
+
+
 
 });
 
