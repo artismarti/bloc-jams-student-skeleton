@@ -334,6 +334,46 @@ blocJams.controller('Album.controller', ['$scope', 'SongPlayer', function($scope
   };
 }]);
 
+blocJams.directive('slider', function(){
+  var updateSeekPercentage = function($seekBar, event) {
+    var barWidth = $seekBar.width();
+    var offsetX =  event.pageX - $seekBar.offset().left;
+
+    var offsetXPercent = (offsetX  / $seekBar.width()) * 100;
+    offsetXPercent = Math.max(0, offsetXPercent);
+    offsetXPercent = Math.min(100, offsetXPercent);
+
+    var percentageString = offsetXPercent + '%';
+    $seekBar.find('.fill').width(percentageString);
+    $seekBar.find('.thumb').css({left: percentageString});
+  }
+
+  return {
+    restrict: 'E',
+    templateUrl: '/templates/directives/slider.html',
+    replace: true,
+    link: function(scope, element, attributes) {
+      var $seekBar = $(element);
+      $seekBar.click(function(event) {
+        updateSeekPercentage($seekBar, event);
+      });
+
+      $seekBar.find('.thumb').mousedown(function(event){
+        $seekBar.addClass('no-animate');
+        $(document).bind('mousemove.thumb', function(event){
+          updateSeekPercentage($seekBar, event);
+        });
+        //cleanup
+        $(document).bind('mouseup.thumb', function(){
+          $seekBar.removeClass('no-animate');
+          $(document).unbind('mousemove.thumb');
+          $(document).unbind('mouseup.thumb');
+        });
+      });
+    }
+  };
+});
+
 blocJams.service('SongPlayer', function() {
   var currentSoundFile = null;
   var trackIndex = function(album, song) {
