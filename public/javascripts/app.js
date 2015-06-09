@@ -350,8 +350,9 @@ blocJams.directive('slider', ['$document', function($document){
     scope: {},
     link: function(scope, element, attributes) {
       scope.value = 0;
-      scope.max = 200;
+      scope.max = 100;
       var $seekBar = $(element);
+      console.log(attributes);
 
       var percentString = function () {
         var percent = Number(scope.value) / Number(scope.max) * 100;
