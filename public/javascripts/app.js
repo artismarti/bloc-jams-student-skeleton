@@ -223,11 +223,6 @@ if (document.URL.match(/\/album.html/)) {
 });
 
 ;require.register("scripts/app", function(exports, require, module) {
-// require("./landing");
-// require("./collection");
-// require("./album");
-// require("./profile");
-
 blocJams = angular.module('BlocJams', ['ui.router']);
 blocJams.config(['$stateProvider', '$locationProvider', function($stateProvider, $locationProvider) {
   $locationProvider.html5Mode(true);
@@ -301,6 +296,11 @@ blocJams.controller('Collection.controller', ['$scope','SongPlayer', function($s
 
 blocJams.controller('PlayerBar.controller', ['$scope', 'SongPlayer', function($scope, SongPlayer) {
   $scope.songPlayer = SongPlayer;
+  SongPlayer.onTimeUpdate(function(event, time){
+    $scope.$apply(function(){
+      $scope.playTime = time;
+    });
+  });
 }]);
 
 blocJams.controller('Album.controller', ['$scope', 'SongPlayer', function($scope, SongPlayer){
@@ -421,7 +421,36 @@ blocJams.directive('slider', ['$document', function($document){
   };
 }]);
 
-blocJams.service('SongPlayer', function() {
+blocJams.filter('timecode', function(){
+  return function(seconds) {
+    seconds = Number.parseFloat(seconds);
+
+    // Returned when no time is provided.
+    if (Number.isNaN(seconds)) {
+      return '-:--';
+    }
+
+    // make it a whole number
+    var wholeSeconds = Math.floor(seconds);
+
+    var minutes = Math.floor(wholeSeconds / 60);
+
+    remainingSeconds = wholeSeconds % 60;
+
+    var output = minutes + ':';
+
+    // zero pad seconds, so 9 seconds should be :09
+    if (remainingSeconds < 10) {
+      output += '0';
+    }
+
+    output += remainingSeconds;
+
+    return output;
+  }
+})
+
+blocJams.service('SongPlayer', ['$rootScope', function($rootScope) {
   var currentSoundFile = null;
   var trackIndex = function(album, song) {
     return album.songs.indexOf(song);
@@ -466,16 +495,25 @@ blocJams.service('SongPlayer', function() {
         currentSoundFile.setTime(time);
       }
     },
+    onTimeUpdate: function(callback) {
+      return $rootScope.$on('sound:timeupdate', callback);
+    },
     setSong: function(album, song) {
       if (currentSoundFile) {
         currentSoundFile.stop();
       }
       this.currentAlbum = album;
       this.currentSong = song;
+
       currentSoundFile = new buzz.sound(song.audioUrl, {
         formats: [ "mp3" ],
         preload: true
       });
+
+      currentSoundFile.bind('timeupdate', function(e){
+        $rootScope.$broadcast('sound:timeupdate', this.getTime());
+      });
+  
     this.play();
     }
   };
