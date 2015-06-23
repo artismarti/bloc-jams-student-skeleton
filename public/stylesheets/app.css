@@ -182,55 +182,56 @@ td.song-number {
     display: inline-block; }
   /* line 64, app/stylesheets/_player_bar.scss */
   .player-bar i {
-    width: 40px;
+    width: 20px;
     font-size: 20px;
     display: inline-block;
-    vertical-align: middle; }
-  /* line 70, app/stylesheets/_player_bar.scss */
+    vertical-align: middle;
+    text-align: left; }
+  /* line 71, app/stylesheets/_player_bar.scss */
   .player-bar .slider {
     display: inline-block;
     width: 100px;
     vertical-align: middle; }
 
-/* line 78, app/stylesheets/_player_bar.scss */
+/* line 79, app/stylesheets/_player_bar.scss */
 .play-controls a {
   font-size: 20px;
   vertical-align: middle; }
-/* line 82, app/stylesheets/_player_bar.scss */
+/* line 83, app/stylesheets/_player_bar.scss */
 .play-controls .previous {
   margin-right: 65px; }
-/* line 85, app/stylesheets/_player_bar.scss */
+/* line 86, app/stylesheets/_player_bar.scss */
 .play-controls .play-pause {
   margin-right: 60px;
   font-size: 30px; }
 
-/* line 91, app/stylesheets/_player_bar.scss */
+/* line 92, app/stylesheets/_player_bar.scss */
 .seek-control {
   position: relative; }
-  /* line 94, app/stylesheets/_player_bar.scss */
+  /* line 95, app/stylesheets/_player_bar.scss */
   .seek-control .current-time {
     position: absolute;
     top: 10px; }
-  /* line 99, app/stylesheets/_player_bar.scss */
+  /* line 100, app/stylesheets/_player_bar.scss */
   .seek-control .total-time {
     position: absolute;
     right: 0;
     top: 10px; }
 
-/* line 106, app/stylesheets/_player_bar.scss */
+/* line 107, app/stylesheets/_player_bar.scss */
 .slider {
   height: 5px;
   background: rgba(255, 255, 255, 0.3);
   border-radius: 2px;
   position: relative;
   cursor: pointer; }
-  /* line 113, app/stylesheets/_player_bar.scss */
+  /* line 114, app/stylesheets/_player_bar.scss */
   .slider .fill {
     background: white;
     width: 36%;
     height: 5px;
     border-radius: 2px; }
-  /* line 120, app/stylesheets/_player_bar.scss */
+  /* line 121, app/stylesheets/_player_bar.scss */
   .slider .thumb {
     position: absolute;
     height: 10px;
@@ -243,17 +244,17 @@ td.song-number {
     border-radius: 50%;
     cursor: pointer;
     transition: all 100ms ease-in-out; }
-  /* line 135, app/stylesheets/_player_bar.scss */
+  /* line 136, app/stylesheets/_player_bar.scss */
   .slider:active .fill, .slider:active .thumb {
     transition: none; }
-  /* line 140, app/stylesheets/_player_bar.scss */
+  /* line 141, app/stylesheets/_player_bar.scss */
   .slider:hover .thumb, .slider:active .thumb {
     width: 20px;
     height: 20px;
     margin-top: -10px;
     margin-left: -10px; }
 
-/* line 148, app/stylesheets/_player_bar.scss */
+/* line 149, app/stylesheets/_player_bar.scss */
 .player-bar-control-group {
   display: table-cell;
   vertical-align: middle; }
