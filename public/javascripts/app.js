@@ -514,10 +514,10 @@ blocJams.service('SongPlayer', ['$rootScope', function($rootScope) {
         $rootScope.$broadcast('sound:timeupdate', this.getTime());
       });
   
-    this.play();
+      this.play();
     }
   };
-});
+}]);
 
 });
 

@@ -1,30 +1,38 @@
+/* line 2, app/stylesheets/_landing.scss */
 .hero-content {
-  background: #2f1d57;
+  background: #2F1D57;
   padding: 100px; }
+  /* line 6, app/stylesheets/_landing.scss */
   .hero-content h1 {
     font-size: 70px;
     margin-bottom: 50px;
     font-weight: 300; }
 
+/* line 13, app/stylesheets/_landing.scss */
 .selling-points {
   padding: 100px; }
+  /* line 16, app/stylesheets/_landing.scss */
   .selling-points .point {
     width: 25%;
     float: left;
     padding: 0 0.5%; }
+  /* line 22, app/stylesheets/_landing.scss */
   .selling-points h5 {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
     text-align: center;
     height: 85px; }
+  /* line 30, app/stylesheets/_landing.scss */
   .selling-points p {
     font-size: 14px; }
 
+/* line 2, app/stylesheets/_album.scss */
 .table.album-song-listing td {
   padding: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.4); }
 
+/* line 8, app/stylesheets/_album.scss */
 .album-song-button {
   text-align: center;
   font-size: 14px;
@@ -34,37 +42,49 @@
   display: inline-block;
   width: 28px;
   height: 28px; }
+  /* line 18, app/stylesheets/_album.scss */
   .album-song-button i {
     line-height: 28px; }
+  /* line 22, app/stylesheets/_album.scss */
   .album-song-button .fa-play {
     padding-left: 5px; }
+  /* line 26, app/stylesheets/_album.scss */
   .album-song-button td {
     vertical-align: middle; }
+  /* line 30, app/stylesheets/_album.scss */
   .album-song-button:hover {
     cursor: pointer;
     color: white;
     background-color: #d2287b; }
 
+/* line 37, app/stylesheets/_album.scss */
 td.song-number {
   padding: 0;
   height: 70px;
   text-align: center; }
 
+/* line 1, app/stylesheets/_collection.scss */
 .collection-album-container {
   margin-top: 30px;
   margin-bottom: 20px; }
+  /* line 5, app/stylesheets/_collection.scss */
   .collection-album-container .caption {
     margin-top: 10px; }
+  /* line 9, app/stylesheets/_collection.scss */
   .collection-album-container p {
     font-size: 16px;
     font-weight: 300;
     color: rgba(255, 255, 255, 0.6); }
+  /* line 15, app/stylesheets/_collection.scss */
   .collection-album-container a {
     color: rgba(255, 255, 255, 0.6); }
+  /* line 19, app/stylesheets/_collection.scss */
   .collection-album-container img {
     max-width: 100%; }
+  /* line 23, app/stylesheets/_collection.scss */
   .collection-album-container .collection-album-image-container {
     position: relative; }
+  /* line 27, app/stylesheets/_collection.scss */
   .collection-album-container .collection-album-image-overlay {
     position: absolute;
     top: 0px;
@@ -73,11 +93,13 @@ td.song-number {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.4);
     z-index: 10; }
+  /* line 37, app/stylesheets/_collection.scss */
   .collection-album-container .collection-overlay-content {
     position: absolute;
     bottom: 20px;
     width: 100%;
     text-align: center; }
+  /* line 44, app/stylesheets/_collection.scss */
   .collection-album-container .collection-overlay-button {
     font-size: 20px;
     background-color: white;
@@ -86,18 +108,23 @@ td.song-number {
     display: inline-block;
     width: 42px;
     height: 42px; }
+  /* line 54, app/stylesheets/_collection.scss */
   .collection-album-container .collection-overlay-button:hover {
     cursor: pointer;
     color: white;
     background-color: #d2287b; }
+  /* line 60, app/stylesheets/_collection.scss */
   .collection-album-container .collection-overlay-button i {
     line-height: 42px; }
+  /* line 64, app/stylesheets/_collection.scss */
   .collection-album-container .collection-overlay-button .fa-play {
     padding-left: 5px; }
 
+/* line 70, app/stylesheets/_collection.scss */
 .collection-album-container .caption p a.album-name {
   color: white; }
 
+/* line 2, app/stylesheets/_player_bar.scss */
 .player-bar {
   position: fixed;
   bottom: 0;
@@ -106,24 +133,30 @@ td.song-number {
   height: 150px;
   background: rgba(255, 255, 255, 0.3);
   z-index: 100; }
+  /* line 11, app/stylesheets/_player_bar.scss */
   .player-bar a, .player-bar a:hover {
     color: white;
     cursor: pointer;
     text-decoration: none; }
+  /* line 17, app/stylesheets/_player_bar.scss */
   .player-bar .container {
     display: table;
     padding: 0;
     min-height: 100%; }
+  /* line 23, app/stylesheets/_player_bar.scss */
   .player-bar .left-controls {
     width: 25%;
     text-align: left; }
+  /* line 28, app/stylesheets/_player_bar.scss */
   .player-bar .right-controls {
     width: 25%;
     text-align: right; }
+  /* line 32, app/stylesheets/_player_bar.scss */
   .player-bar .currently-playing {
     width: 50%;
     text-align: center;
     position: relative; }
+    /* line 37, app/stylesheets/_player_bar.scss */
     .player-bar .currently-playing .song-name, .player-bar .currently-playing .artist-name {
       text-align: center;
       font-size: 12px;
@@ -131,57 +164,73 @@ td.song-number {
       position: absolute;
       width: 100%;
       font-weight: 300; }
+    /* line 45, app/stylesheets/_player_bar.scss */
     .player-bar .currently-playing .song-name {
       top: 20px; }
+    /* line 48, app/stylesheets/_player_bar.scss */
     .player-bar .currently-playing .artist-name {
       bottom: 20px; }
+  /* line 53, app/stylesheets/_player_bar.scss */
   .player-bar .queue-toggle {
     display: inline-block;
     margin-left: 75px; }
+    /* line 56, app/stylesheets/_player_bar.scss */
     .player-bar .queue-toggle i {
       font-size: 20px; }
+  /* line 61, app/stylesheets/_player_bar.scss */
   .player-bar .volume {
     display: inline-block; }
+  /* line 64, app/stylesheets/_player_bar.scss */
   .player-bar i {
     width: 40px;
     font-size: 20px;
     display: inline-block;
     vertical-align: middle; }
+  /* line 70, app/stylesheets/_player_bar.scss */
   .player-bar .slider {
     display: inline-block;
     width: 100px;
     vertical-align: middle; }
 
+/* line 78, app/stylesheets/_player_bar.scss */
 .play-controls a {
   font-size: 20px;
   vertical-align: middle; }
+/* line 82, app/stylesheets/_player_bar.scss */
 .play-controls .previous {
   margin-right: 65px; }
+/* line 85, app/stylesheets/_player_bar.scss */
 .play-controls .play-pause {
   margin-right: 60px;
   font-size: 30px; }
 
+/* line 91, app/stylesheets/_player_bar.scss */
 .seek-control {
   position: relative; }
+  /* line 94, app/stylesheets/_player_bar.scss */
   .seek-control .current-time {
     position: absolute;
     top: 10px; }
+  /* line 99, app/stylesheets/_player_bar.scss */
   .seek-control .total-time {
     position: absolute;
     right: 0;
     top: 10px; }
 
+/* line 106, app/stylesheets/_player_bar.scss */
 .slider {
   height: 5px;
   background: rgba(255, 255, 255, 0.3);
   border-radius: 2px;
   position: relative;
   cursor: pointer; }
+  /* line 113, app/stylesheets/_player_bar.scss */
   .slider .fill {
     background: white;
     width: 36%;
     height: 5px;
     border-radius: 2px; }
+  /* line 120, app/stylesheets/_player_bar.scss */
   .slider .thumb {
     position: absolute;
     height: 10px;
@@ -194,20 +243,24 @@ td.song-number {
     border-radius: 50%;
     cursor: pointer;
     transition: all 100ms ease-in-out; }
+  /* line 135, app/stylesheets/_player_bar.scss */
   .slider:active .fill, .slider:active .thumb {
     transition: none; }
+  /* line 140, app/stylesheets/_player_bar.scss */
   .slider:hover .thumb, .slider:active .thumb {
     width: 20px;
     height: 20px;
     margin-top: -10px;
     margin-left: -10px; }
 
+/* line 148, app/stylesheets/_player_bar.scss */
 .player-bar-control-group {
   display: table-cell;
   vertical-align: middle; }
 
+/* line 1, app/stylesheets/_buttons.scss */
 .default-button {
-  background-color: #d2287b;
+  background-color: #D2287B;
   color: white;
   font-weight: 700;
   border-radius: 5px;
@@ -217,56 +270,70 @@ td.song-number {
   letter-spacing: 2px;
   outline: none;
   clear: both; }
+  /* line 13, app/stylesheets/_buttons.scss */
   .default-button:active {
-    background-color: #9b1d64;
+    background-color: #9B1D64;
     outline: none; }
+  /* line 18, app/stylesheets/_buttons.scss */
   .default-button:disabled {
-    background-color: #b3b3b3;
+    background-color: #B3B3B3;
     cursor: not-allowed; }
 
+/* line 2, app/stylesheets/_profile.scss */
 .user-profile-header {
   border: none;
   font-size: 24px;
   font-weight: 300;
   margin-top: 20px; }
 
+/* line 8, app/stylesheets/_profile.scss */
 .user-image-container {
   display: inline-block; }
 
+/* line 13, app/stylesheets/_profile.scss */
 + .tab-content.user-subscription .well {
   background: transparent;
-  border: #d2287b 2px solid; }
+  border: #D2287B 2px solid; }
+/* line 18, app/stylesheets/_profile.scss */
 + .tab-content.user-subscription + .subsection-label {
   margin-bottom: 15px;
   font-size: 24px;
   color: white;
   font-weight: 300; }
+/* line 26, app/stylesheets/_profile.scss */
 + .tab-content.user-subscription .table.credit-card-list td {
   border-top-color: rgba(255, 255, 255, 0.6);
   font-weight: 300;
   font-size: 16px; }
+/* line 32, app/stylesheets/_profile.scss */
 + .tab-content.user-subscription .fa-minus-circle {
-  color: #d2287b; }
+  color: #D2287B; }
 
+/* line 37, app/stylesheets/_profile.scss */
 .user-profile-tabs-container {
   margin: 42px auto 20px;
   text-align: center; }
+  /* line 40, app/stylesheets/_profile.scss */
   .user-profile-tabs-container .pagination.profile-pagination {
     font-weight: 700;
-    border: #d2287b 2px solid;
+    border: #D2287B 2px solid;
     border-radius: 8px; }
+    /* line 45, app/stylesheets/_profile.scss */
     .user-profile-tabs-container .pagination.profile-pagination > li > a {
       border: none;
       background-color: transparent;
       color: white;
       letter-spacing: 2px; }
+    /* line 52, app/stylesheets/_profile.scss */
     .user-profile-tabs-container .pagination.profile-pagination > .active > a {
-      background-color: #d2287b;
+      background-color: #D2287B;
       border-radius: 4px; }
 
+/* line 61, app/stylesheets/_profile.scss */
 .default-form label {
   font-weight: 300;
   font-size: 16px; }
+/* line 66, app/stylesheets/_profile.scss */
 .default-form input {
   background-color: rgba(255, 255, 255, 0.6);
   border-radius: 0;
@@ -275,18 +342,23 @@ td.song-number {
   font-size: 16px;
   padding: 10px 12px 10px; }
 
+/* line 76, app/stylesheets/_profile.scss */
 .no-left-gutter {
   padding-left: 0px; }
 
+/* line 80, app/stylesheets/_profile.scss */
 .no-right-gutter {
   padding-right: 0px; }
 
+/* line 8, stdin */
 .odd {
   background-color: blue; }
 
+/* line 12, stdin */
 html {
   height: 100%; }
 
+/* line 16, stdin */
 body {
   font-family: 'Open Sans';
   color: white;
@@ -294,22 +366,27 @@ body {
   background: -webkit-radial-gradient(#2b1339, #380c77);
   background: radial-gradient(#2b1339, #380c77); }
 
+/* line 24, stdin */
 body.landing {
-  background: #5b5579; }
+  background: #5B5579; }
 
+/* line 28, stdin */
 .nav-bar {
   background: #2c1231;
   height: 90px;
   padding: 0 100px; }
 
+/* line 34, stdin */
 .player-header-nav {
   background-color: rgba(123, 70, 163, 0.9); }
+  /* line 38, stdin */
   .player-header-nav .navbar-nav a {
     line-height: 45px;
     color: white;
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 1.2; }
+    /* line 45, stdin */
     .player-header-nav .navbar-nav a:hover {
       color: rgba(123, 70, 163, 0.9); }
 
